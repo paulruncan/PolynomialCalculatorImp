@@ -1,38 +1,32 @@
 package org.example;
 
-import java.util.regex.Matcher;
+import Model.Polynomial;
+import Utils.PolynomialParser;
+import View.InputStringValidator;
+
 import java.util.regex.Pattern;
 
 public class Main {
-    private static final Pattern POLYNOMIAL_PATTERN = Pattern.compile("([-+]?\\d+)(x\\^)(\\d+)\\s?|([-+]?\\d+)(x)|([-+]?\\d+)");
-    public static void main(String[] args) {
-        String polynomial = "23x^5+12x^4+72x^3-23x^2+45x^1+56";
-        parsePolynomial(polynomial);
-    }
-
-    public static void parsePolynomial(String polynomial) {
-        Matcher matcher = POLYNOMIAL_PATTERN.matcher(polynomial);
-        while (matcher.find()) {
-            String coefficient = matcher.group(1);
-            String variable = matcher.group(2);
-            String exponent = matcher.group(3);
-            String firstPower = matcher.group(4);
-            String xd=matcher.group(6);
-
-            if (coefficient != null && !coefficient.isEmpty()) {
-                System.out.println("Coefficient: " + coefficient);
-            }
-            if (variable != null && !variable.isEmpty()) {
-                System.out.println("Variable: " + variable);
-            }
-            if (exponent != null && !exponent.isEmpty()) {
-              System.out.println("Exponent: " + exponent);
-           }
-            if(xd != null)
-                System.out.println("freeterm" + xd);
-            System.out.println("\n");
-            if(firstPower != null)
-                System.out.println("firstpower: "+ firstPower);
+    private static final Pattern POLYNOMIAL_PATTERN = Pattern.compile("([-+]?\\d+|[-+]?)(x\\^?|)(\\d+|)");
+    public static void main(String[] args) throws Exception {
+        String polynomial = "7x^4+5x^3-12x^2+15x+7";
+        int a=2;
+        double b=2.0;
+        Polynomial exemplu = new Polynomial();
+        exemplu.addMonomial(1,22.3);
+        exemplu.addMonomial(0,22.5);
+        exemplu.addMonomial(2,28.3);
+        System.out.println(exemplu.toString());
+        if(a==b)
+            System.out.println("da");
+        InputStringValidator validator = new InputStringValidator();
+        validator.validate(polynomial);
+        Polynomial Polynom = new Polynomial(PolynomialParser.parsePolynomial(polynomial));
+        System.out.println(Polynom.toString());
+        for(Integer keye: Polynom.getMonomials().keySet()){
+            System.out.println("coeff: " + Polynom.getMonomials().get(keye) + " key: " + keye);
         }
+
     }
+
 }
