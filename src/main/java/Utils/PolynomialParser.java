@@ -25,15 +25,16 @@ public class PolynomialParser {
             } else if (exponent.isEmpty()) {
                 expInt = 1;
             } else expInt = Integer.parseInt(exponent);
-            if(coefficient.isEmpty() && var.isEmpty() && exponent.isEmpty()){
+            if (coefficient.isEmpty() && var.isEmpty() && exponent.isEmpty()) {
                 coeffInt = -1;
                 expInt = -1;
             }
-            if(polynom.containsKey(expInt)){
-                polynom.put(expInt, polynom.get(expInt).intValue()+coeffInt);
-            } else polynom.put(expInt,coeffInt);
-
+            if (polynom.containsKey(expInt)) {
+                polynom.put(expInt, polynom.get(expInt).intValue() + coeffInt);
+            } else polynom.put(expInt, coeffInt);
         }
+        if (polynom.containsKey(-1))
+            polynom.remove(-1);
         return polynom;
     }
 }
