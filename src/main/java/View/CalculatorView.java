@@ -37,7 +37,7 @@ public class CalculatorView extends JFrame {
 
     private void prepareResultPanel() {
         this.resultPanel = new JPanel();
-        this.resultPanel.setLayout(new GridLayout(2, 1));
+        this.resultPanel.setLayout(new GridLayout(2, 2));
         this.resultLabel = new JLabel("Result", JLabel.CENTER);
         this.resultValueLabel = new JLabel("", JLabel.CENTER);
         this.remainderLabel = new JLabel("", JLabel.CENTER);
@@ -95,4 +95,6 @@ public class CalculatorView extends JFrame {
     public JLabel getRemainderResultLabel() {
         return remainderResultLabel;
     }
+
+    public JLabel getResultLabel() {return resultLabel;}
 }

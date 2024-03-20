@@ -1,5 +1,3 @@
-package Tests;
-
 import BussinesLogic.Operations;
 import Model.Polynomial;
 import org.junit.Test;
@@ -8,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OperationsTest {
     @Test
-    public void addTest(){
+    public void testAdd(){
         Polynomial polynomialA,polynomialB,result;
         polynomialA=new Polynomial();
         polynomialA.getMonomials().put(5,4);
@@ -30,7 +28,7 @@ public class OperationsTest {
         assertEquals(Operations.Add(polynomialA,polynomialB).toString(),result.toString());
     }
     @Test
-    public void subtractTest(){
+    public void testSubtract(){
         Polynomial polynomialA,polynomialB,result;
         polynomialA=new Polynomial();
         polynomialA.getMonomials().put(5,4);
@@ -54,7 +52,7 @@ public class OperationsTest {
     }
 
     @Test
-    public void multiplyTest(){
+    public void testMultiply(){
         Polynomial polynomialA,polynomialB,result;
         polynomialA=new Polynomial();
         polynomialA.getMonomials().put(2,3);
@@ -72,7 +70,7 @@ public class OperationsTest {
     }
 
     @Test
-    public void divisionTest(){
+    public void testDivision(){
         Polynomial polynomialA,polynomialB;
         Polynomial[] result = new Polynomial[2];
         polynomialA=new Polynomial();
@@ -89,14 +87,14 @@ public class OperationsTest {
         result[1] =new Polynomial();
         result[1].getMonomials().put(1,7);
         result[1].getMonomials().put(0,-7);
-        Polynomial[] forCheck= new Polynomial[2];
+        Polynomial[] forCheck;
         forCheck=Operations.Divide(polynomialA,polynomialB);
         assertEquals(forCheck[0].toString(),result[0].toString());
         assertEquals(forCheck[1].toString(),result[1].toString());
     }
 
     @Test
-    public void deriveTest(){
+    public void testDerive(){
         Polynomial polynomial,result;
         polynomial=new Polynomial();
         polynomial.getMonomials().put(3,1);
@@ -111,7 +109,7 @@ public class OperationsTest {
     }
 
     @Test
-    public void integrateTest(){
+    public void testIntegrate(){
         Polynomial polynomial,result;
         polynomial=new Polynomial();
         polynomial.getMonomials().put(3,1);

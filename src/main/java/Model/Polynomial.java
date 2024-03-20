@@ -35,15 +35,15 @@ public class Polynomial {
         for( Map.Entry<Integer, Number> entry : monomials.descendingMap().entrySet() ) {
             if (entry.getKey() == 0) {
                 if (entry.getValue().floatValue() > 0)
-                    buildString.append("+").append(StringNumberParser.ParseToInt(entry.getValue()));
+                    buildString.append("+").append(StringNumberParser.parseToInt(entry.getValue()));
                 else if (entry.getValue().floatValue() < 0) {
-                    buildString.append(StringNumberParser.ParseToInt(entry.getValue()));
+                    buildString.append(StringNumberParser.parseToInt(entry.getValue()));
                 }
             } else if (entry.getKey().equals(monomials.lastKey())) {
                 if (entry.getValue().floatValue() == -1)
                     buildString.append("-");
                 else if (entry.getValue().floatValue() != 1)
-                    buildString.append(StringNumberParser.ParseToInt(entry.getValue()));
+                    buildString.append(StringNumberParser.parseToInt(entry.getValue()));
                 if (entry.getKey() == 1)
                     buildString.append("x");
                 else buildString.append("x^").append(entry.getKey());
@@ -53,8 +53,8 @@ public class Polynomial {
                 else if (entry.getValue().floatValue() == 1)
                     buildString.append("+");
                 else if (entry.getValue().floatValue() != 1 && entry.getValue().floatValue() > 0)
-                    buildString.append("+").append(StringNumberParser.ParseToInt(entry.getValue()));
-                else buildString.append(StringNumberParser.ParseToInt(entry.getValue()));
+                    buildString.append("+").append(StringNumberParser.parseToInt(entry.getValue()));
+                else buildString.append(StringNumberParser.parseToInt(entry.getValue()));
 
                 if (entry.getKey() == 1)
                     buildString.append("x");
@@ -64,7 +64,4 @@ public class Polynomial {
         return buildString.toString();
     }
 
-    public void addMonomial( Integer exponent, Number coefficient ) {
-        this.monomials.put(exponent, coefficient);
-    }
 }

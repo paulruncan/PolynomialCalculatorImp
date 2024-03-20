@@ -32,6 +32,8 @@ public class PolynomialParser {
             if (polynom.containsKey(expInt)) {
                 polynom.put(expInt, polynom.get(expInt).intValue() + coeffInt);
             } else polynom.put(expInt, coeffInt);
+            if(polynom.get(expInt).floatValue()==0)
+                polynom.remove(expInt);
         }
         if (polynom.containsKey(-1))
             polynom.remove(-1);
