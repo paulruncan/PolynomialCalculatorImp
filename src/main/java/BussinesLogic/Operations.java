@@ -71,13 +71,13 @@ public class Operations {
         Polynomial[] result = new Polynomial[2];
         result[0] = new Polynomial();
         result[1] = new Polynomial();
-        if (!polynomialB.getMonomials().isEmpty()){
+        if (!polynomialB.getMonomials().isEmpty()) {
             while (!polynomialA.getMonomials().isEmpty() && polynomialA.getMonomials().lastKey() >= polynomialB.getMonomials().lastKey()) {
                 result[0].getMonomials().put(polynomialA.getMonomials().lastKey() - polynomialB.getMonomials().lastKey(), polynomialA.getMonomials().get(polynomialA.getMonomials().lastKey()).floatValue() / polynomialB.getMonomials().get(polynomialB.getMonomials().lastKey()).floatValue());
                 polynomialA = Operations.Subtract(polynomialA, Operations.Multiply(new Polynomial(polynomialA.getMonomials().lastKey() - polynomialB.getMonomials().lastKey(), polynomialA.getMonomials().get(polynomialA.getMonomials().lastKey()).floatValue() / polynomialB.getMonomials().get(polynomialB.getMonomials().lastKey()).floatValue()), polynomialB));
             }
-        result[1] = polynomialA;}
-        else throw new ArithmeticException("Division by Zero");
+            result[1] = polynomialA;
+        } else throw new ArithmeticException("Division by Zero");
         return result;
     }
 }

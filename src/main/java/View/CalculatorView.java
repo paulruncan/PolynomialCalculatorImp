@@ -96,5 +96,7 @@ public class CalculatorView extends JFrame {
         return remainderResultLabel;
     }
 
-    public JLabel getResultLabel() {return resultLabel;}
+    public JLabel getResultLabel() {
+        return resultLabel;
+    }
 }

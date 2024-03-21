@@ -17,7 +17,7 @@ public class Controller implements ActionListener {
         this.view = view;
     }
 
-    public void actionPerformed( ActionEvent e ){
+    public void actionPerformed( ActionEvent e ) {
         String command = e.getActionCommand();
         if (command.equals("COMPUTE")) {
             String firstPolynomialAsString = view.getFirstNumberTextField().getText();
@@ -28,7 +28,7 @@ public class Controller implements ActionListener {
                 String operation = String.valueOf(view.getOperationsComboBox().getSelectedItem());
 
                 validator.validate(firstPolynomialAsString);
-                if(operation != "DeriveFirst" && operation != "IntegrateFirst")
+                if (operation != "DeriveFirst" && operation != "IntegrateFirst")
                     validator.validate(secondPolynomialAsString);
                 Polynomial firstPolynomial = new Polynomial(PolynomialParser.parsePolynomial(firstPolynomialAsString));
                 Polynomial secondPolynomial = new Polynomial(PolynomialParser.parsePolynomial(secondPolynomialAsString));
@@ -70,7 +70,7 @@ public class Controller implements ActionListener {
                 view.getRemainderLabel().setText("ERROR:");
                 view.getResultValueLabel().setText("");
 
-            } catch (ArithmeticException exception2){
+            } catch (ArithmeticException exception2) {
                 view.getRemainderResultLabel().setText("Division by Zero is Illegal");
                 view.getRemainderLabel().setText("ERROR:");
                 view.getResultValueLabel().setText("");
